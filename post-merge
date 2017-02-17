@@ -1,0 +1,9 @@
+
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+check_run() {
+	echo "$changed_files" | grep --quiet "$1" && echo "There is new install in $1"
+}
+
+# Example usage
+check_run requirements.txt
